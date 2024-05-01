@@ -56,7 +56,9 @@ interface FacebookSharingProps extends ShareProps {
 const facebook = (props: FacebookSharingProps) => {
 	const params = {
 		...props,
-		u: props.u ?? props.url
+		u: props.u ?? props.url,
+		url: undefined,
+		text: undefined
 	}
 	return socialBase(params, 'facebook')
 }
@@ -355,7 +357,7 @@ const init = () => {
 			windowObjectReference.focus()
 		}
 	}
-	const links = document.querySelectorAll<HTMLLinkElement>('a[open-new-tab]')
+	const links = document.querySelectorAll<HTMLLinkElement>('a[open-win]')
 	for (let link of links) {
 		link.removeAttribute('target')
 		link.addEventListener(
