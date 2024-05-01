@@ -5,6 +5,10 @@
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
+	"repository": {
+		"url": "git@github.com:michelangelo-valderrama/social-share-generator.git"
+	},
+	"homepage": "git@github.com:michelangelo-valderrama/social-share-generator.git",
 	"files": [
 		"dist"
 	],
