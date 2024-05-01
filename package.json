@@ -1,5 +1,5 @@
 {
-	"name": "social-share",
+	"name": "social-share-generator",
 	"version": "1.0.0",
 	"description": "Generate links to create social share buttons.",
 	"main": "./dist/index.js",
