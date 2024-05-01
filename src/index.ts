@@ -105,7 +105,8 @@ interface WhatsappSharingProps extends ShareProps {
 const whatsapp = (props: WhatsappSharingProps) => {
 	const params = {
 		...props,
-		text: props.text ? `${props.text} ${props.url}` : props.url
+		text: props.text ? `${props.text} ${props.url}` : props.url,
+		url: undefined
 	}
 	return socialBase(params, 'whatsapp')
 }
@@ -128,7 +129,8 @@ interface RedditSharingProps extends ShareProps {
 const reddit = (props: RedditSharingProps) => {
 	const params = {
 		...props,
-		title: props.title ?? props.text
+		title: props.title ?? props.text,
+		text: undefined
 	}
 	return socialBase(params, 'reddit')
 }
@@ -199,7 +201,9 @@ const tumblr = (props: TumblrSharingProps) => {
 		...props,
 		posttype: 'link',
 		canonicalUrl: props.canonicalUrl ?? props.url,
-		content: props.text ?? props.caption
+		content: props.text ?? props.caption,
+		url: undefined,
+		text: undefined
 	}
 	return socialBase(params, 'tumblr')
 }
@@ -308,9 +312,10 @@ const mailto = (props: MailtoSharingProps) => {
 	const params = {
 		...props,
 		body: `${props.body ?? props.text} ${props.url}`,
-		emailAddress: undefined
+		url: undefined,
+		text: undefined
 	}
-	return `mailto:{${props.emailAddress}}?${toQueryString(params)}`
+	return `mailto:${props.emailAddress ?? ''}?${toQueryString(params)}`
 }
 
 interface PocketSharingProps extends ShareProps {
@@ -329,7 +334,13 @@ interface PocketSharingProps extends ShareProps {
  *
  * [Reference](https://getpocket.com/publisher/button_docs)
  */
-const pocket = (props: PocketSharingProps) => socialBase(props, 'pocket')
+const pocket = (props: PocketSharingProps) => {
+	const params = {
+		...props,
+		text: undefined
+	}
+	return socialBase(params, 'pocket')
+}
 
 export {
 	twitter,
