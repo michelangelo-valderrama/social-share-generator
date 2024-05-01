@@ -5,17 +5,18 @@ Generate links to create social share buttons.
 - Framework agnostic
 - Customizable and extensible
 - Simplified interfaces
+
   ```ts
-  import * as Share from 'social-share'
+  import * as Share from 'social-share-generator'
 
   const facebookLink = Share.facebook({
-    url: 'https://google.com' // <- Not officially supported, equivalent to `u`
+  	url: 'https://google.com' // <- Not officially supported, equivalent to `u`
   })
   console.log(facebookLink)
   // https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgoogle.com
 
   const gmailLink = Share.gmail({
-    subject: 'My Subject' // <- Not officially supported, equivalent to `su`
+  	subject: 'My Subject' // <- Not officially supported, equivalent to `su`
   })
   console.log(gmailLink)
   // https://mail.google.com/mail?view=cm&su=Subject
@@ -24,21 +25,21 @@ Generate links to create social share buttons.
 ## Installation
 
 ```sh
-npm i social-share
+npm i social-share-generator
 ```
 
 ```sh
-pnpm i social-share
+pnpm i social-share-generator
 ```
 
 ```sh
-yarn add social-share
+yarn add social-share-generator
 ```
 
 ## Usage
 
 ```ts
-import * as Share from 'social-share'
+import * as Share from 'social-share-generator'
 
 const link = Share.telegram({
 	url: 'https://google.com',
@@ -72,7 +73,7 @@ $anchor.href = link
 
 ```ts
 /*src/main.ts*/
-import * as Share from 'social-share'
+import * as Share from 'social-share-generator'
 import './style.css'
 
 const shareProps = { url: 'https://imangelo.dev', text: 'Hello, world!' }

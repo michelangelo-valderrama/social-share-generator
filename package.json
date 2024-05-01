@@ -1,6 +1,6 @@
 {
 	"name": "social-share-generator",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Generate links to create social share buttons.",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
