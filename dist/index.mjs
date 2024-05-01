@@ -23,7 +23,7 @@ var SOCIAL_URLS = {
   twitter: "https://twitter.com/intent/tweet",
   facebook: "https://www.facebook.com/sharer/sharer.php",
   telegram: "https://t.me/share/url",
-  whatsapp: "https://wa.me/",
+  whatsapp: "https://wa.me",
   reddit: "https://reddit.com/submit",
   linkedin: "https://www.linkedin.com/sharing/share-offsite",
   tumblr: "https://www.tumblr.com/widgets/share/tool",
@@ -59,14 +59,16 @@ var facebook = (props) => {
 var telegram = (props) => socialBase(props, "telegram");
 var whatsapp = (props) => {
   const params = __spreadProps(__spreadValues({}, props), {
-    text: props.text ? `${props.text} ${props.url}` : props.url
+    text: props.text ? `${props.text} ${props.url}` : props.url,
+    url: void 0
   });
   return socialBase(params, "whatsapp");
 };
 var reddit = (props) => {
   var _a;
   const params = __spreadProps(__spreadValues({}, props), {
-    title: (_a = props.title) != null ? _a : props.text
+    title: (_a = props.title) != null ? _a : props.text,
+    text: void 0
   });
   return socialBase(params, "reddit");
 };
@@ -79,7 +81,9 @@ var tumblr = (props) => {
   const params = __spreadProps(__spreadValues({}, props), {
     posttype: "link",
     canonicalUrl: (_a = props.canonicalUrl) != null ? _a : props.url,
-    content: (_b = props.text) != null ? _b : props.caption
+    content: (_b = props.text) != null ? _b : props.caption,
+    url: void 0,
+    text: void 0
   });
   return socialBase(params, "tumblr");
 };
@@ -95,14 +99,20 @@ var gmail = (props) => {
   return socialBase(params, "gmail");
 };
 var mailto = (props) => {
-  var _a;
+  var _a, _b;
   const params = __spreadProps(__spreadValues({}, props), {
     body: `${(_a = props.body) != null ? _a : props.text} ${props.url}`,
-    emailAddress: void 0
+    url: void 0,
+    text: void 0
   });
-  return `mailto:{${props.emailAddress}}?${toQueryString(params)}`;
+  return `mailto:${(_b = props.emailAddress) != null ? _b : ""}?${toQueryString(params)}`;
 };
-var pocket = (props) => socialBase(props, "pocket");
+var pocket = (props) => {
+  const params = __spreadProps(__spreadValues({}, props), {
+    text: void 0
+  });
+  return socialBase(params, "pocket");
+};
 var init = () => {
   let windowObjectReference = null;
   function openRequestedTab(url, windowName) {
