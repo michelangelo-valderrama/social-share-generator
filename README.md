@@ -119,7 +119,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   ${Object.keys(socialLinks)
 		.map(
 			(key) =>
-				`<a open-new-tab target="_blank" rel="noopener noreferrer" href="${
+				`<a open-win target="_blank" rel="noopener noreferrer" href="${
 					socialLinks[key as keyof typeof socialLinks]
 				}">${key}</a>`
 		)
