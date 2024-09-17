@@ -67,8 +67,7 @@ var SOCIAL_URLS = {
 var toQueryString = (params) => {
   const query = new URLSearchParams();
   for (const [key, value] of Object.entries(params)) {
-    if (value)
-      query.set(key, `${value}`);
+    if (value) query.set(key, `${value}`);
   }
   return query.toString();
 };

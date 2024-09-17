@@ -20,7 +20,7 @@ interface ShareProps {
 	[key: unknown]: unknown
 }
 
-interface TwitterSharingProps extends ShareProps {
+interface TwitterShareProps extends ShareProps {
     /**
      * The `url` parameter contains an absolute HTTP or HTTPS URL to be shared on Twitter.
      */
@@ -55,8 +55,8 @@ interface TwitterSharingProps extends ShareProps {
  *
  * [Reference](https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview)
  */
-declare const twitter: (props: TwitterSharingProps) => string;
-interface FacebookSharingProps extends ShareProps {
+declare const twitter: (props: TwitterShareProps) => string;
+interface FacebookShareProps extends ShareProps {
     /**
      * Not supported by Facebook. Equivalent to `u`.
      */
@@ -71,8 +71,8 @@ interface FacebookSharingProps extends ShareProps {
  *
  * [Reference](https://developers.facebook.com/docs/plugins/share-button/)
  */
-declare const facebook: (props: FacebookSharingProps) => string;
-interface TelegramSharingProps extends ShareProps {
+declare const facebook: (props: FacebookShareProps) => string;
+interface TelegramShareProps extends ShareProps {
     /**
      * The URL the user will be sharing.
      */
@@ -87,8 +87,8 @@ interface TelegramSharingProps extends ShareProps {
  *
  * [Reference](https://core.telegram.org/widgets/share#custom-buttons)
  */
-declare const telegram: (props: TelegramSharingProps) => string;
-interface WhatsappSharingProps extends ShareProps {
+declare const telegram: (props: TelegramShareProps) => string;
+interface WhatsappShareProps extends ShareProps {
     /**
      * Not supported by WhatsApp. See `text`.
      */
@@ -110,8 +110,8 @@ interface WhatsappSharingProps extends ShareProps {
  *
  * [Reference](https://faq.whatsapp.com/5913398998672934/?locale=en_US)
  */
-declare const whatsapp: (props: WhatsappSharingProps) => string;
-interface RedditSharingProps extends ShareProps {
+declare const whatsapp: (props: WhatsappShareProps) => string;
+interface RedditShareProps extends ShareProps {
     /**
      * Not supported by Reddit. Equivalent to `title`.
      */
@@ -126,8 +126,8 @@ interface RedditSharingProps extends ShareProps {
  *
  * [Reference](https://github.com/bradvin/social-share-urls?tab=readme-ov-file#-reddit)
  */
-declare const reddit: (props: RedditSharingProps) => string;
-interface LinkedInSharingProps extends ShareProps {
+declare const reddit: (props: RedditShareProps) => string;
+interface LinkedInShareProps extends ShareProps {
     /**
      * This attribute is not **officially** supported by LinkedIn, but it works.
      */
@@ -138,8 +138,8 @@ interface LinkedInSharingProps extends ShareProps {
  *
  * [Reference](https://stackoverflow.com/questions/33426752/linkedin-share-post-url)
  */
-declare const linkedin: (props: LinkedInSharingProps) => string;
-interface TumblrSharingProps extends ShareProps {
+declare const linkedin: (props: LinkedInShareProps) => string;
+interface TumblrShareProps extends ShareProps {
     /**
      * Not supported by Tumblr. Equivalent to `canonicalUrl`.
      */
@@ -182,8 +182,8 @@ interface TumblrSharingProps extends ShareProps {
  *
  * [Reference](https://www.tumblr.com/docs/en/share_button)
  */
-declare const tumblr: (props: TumblrSharingProps) => string;
-interface GmailSharingProps extends ShareProps {
+declare const tumblr: (props: TumblrShareProps) => string;
+interface GmailShareProps extends ShareProps {
     /**
      * Not supported by Gmail. See `body`.
      */
@@ -233,8 +233,8 @@ interface GmailSharingProps extends ShareProps {
  *
  * [Reference](https://stackoverflow.com/questions/20956206/is-the-mail-google-com-api-documented/56782038#56782038).
  */
-declare const gmail: (props: GmailSharingProps) => string;
-interface MailtoSharingProps extends ShareProps {
+declare const gmail: (props: GmailShareProps) => string;
+interface MailtoShareProps extends ShareProps {
     /**
      * Not supported by Mailto. See `body`.
      */
@@ -272,8 +272,8 @@ interface MailtoSharingProps extends ShareProps {
  *
  * [Reference](https://www.ietf.org/rfc/rfc2368.txt).
  */
-declare const mailto: (props: MailtoSharingProps) => string;
-interface PocketSharingProps extends ShareProps {
+declare const mailto: (props: MailtoShareProps) => string;
+interface PocketShareProps extends ShareProps {
     /**
      * URL to save.
      */
@@ -289,6 +289,6 @@ interface PocketSharingProps extends ShareProps {
  *
  * [Reference](https://getpocket.com/publisher/button_docs)
  */
-declare const pocket: (props: PocketSharingProps) => string;
+declare const pocket: (props: PocketShareProps) => string;
 
-export { facebook, gmail, linkedin, mailto, pocket, reddit, telegram, tumblr, twitter, whatsapp };
+export { type FacebookShareProps, type GmailShareProps, type LinkedInShareProps, type MailtoShareProps, type PocketShareProps, type RedditShareProps, type ShareProps, type TelegramShareProps, type TumblrShareProps, type TwitterShareProps, type WhatsappShareProps, facebook, gmail, linkedin, mailto, pocket, reddit, telegram, tumblr, twitter, whatsapp };
