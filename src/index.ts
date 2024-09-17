@@ -1,7 +1,9 @@
 import type { ShareProps } from './types'
 import { socialBase, toQueryString } from './utils'
 
-interface TwitterSharingProps extends ShareProps {
+export type { ShareProps }
+
+export interface TwitterShareProps extends ShareProps {
 	/**
 	 * The `url` parameter contains an absolute HTTP or HTTPS URL to be shared on Twitter.
 	 */
@@ -36,9 +38,9 @@ interface TwitterSharingProps extends ShareProps {
  *
  * [Reference](https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview)
  */
-const twitter = (props: TwitterSharingProps) => socialBase(props, 'twitter')
+const twitter = (props: TwitterShareProps) => socialBase(props, 'twitter')
 
-interface FacebookSharingProps extends ShareProps {
+export interface FacebookShareProps extends ShareProps {
 	/**
 	 * Not supported by Facebook. Equivalent to `u`.
 	 */
@@ -53,7 +55,7 @@ interface FacebookSharingProps extends ShareProps {
  *
  * [Reference](https://developers.facebook.com/docs/plugins/share-button/)
  */
-const facebook = (props: FacebookSharingProps) => {
+const facebook = (props: FacebookShareProps) => {
 	const params = {
 		...props,
 		u: props.u ?? props.url,
@@ -63,7 +65,7 @@ const facebook = (props: FacebookSharingProps) => {
 	return socialBase(params, 'facebook')
 }
 
-interface TelegramSharingProps extends ShareProps {
+export interface TelegramShareProps extends ShareProps {
 	/**
 	 * The URL the user will be sharing.
 	 */
@@ -78,9 +80,9 @@ interface TelegramSharingProps extends ShareProps {
  *
  * [Reference](https://core.telegram.org/widgets/share#custom-buttons)
  */
-const telegram = (props: TelegramSharingProps) => socialBase(props, 'telegram')
+const telegram = (props: TelegramShareProps) => socialBase(props, 'telegram')
 
-interface WhatsappSharingProps extends ShareProps {
+export interface WhatsappShareProps extends ShareProps {
 	/**
 	 * Not supported by WhatsApp. See `text`.
 	 */
@@ -102,7 +104,7 @@ interface WhatsappSharingProps extends ShareProps {
  *
  * [Reference](https://faq.whatsapp.com/5913398998672934/?locale=en_US)
  */
-const whatsapp = (props: WhatsappSharingProps) => {
+const whatsapp = (props: WhatsappShareProps) => {
 	const params = {
 		...props,
 		text: props.text ? `${props.text} ${props.url}` : props.url,
@@ -111,7 +113,7 @@ const whatsapp = (props: WhatsappSharingProps) => {
 	return socialBase(params, 'whatsapp')
 }
 
-interface RedditSharingProps extends ShareProps {
+export interface RedditShareProps extends ShareProps {
 	/**
 	 * Not supported by Reddit. Equivalent to `title`.
 	 */
@@ -126,7 +128,7 @@ interface RedditSharingProps extends ShareProps {
  *
  * [Reference](https://github.com/bradvin/social-share-urls?tab=readme-ov-file#-reddit)
  */
-const reddit = (props: RedditSharingProps) => {
+const reddit = (props: RedditShareProps) => {
 	const params = {
 		...props,
 		title: props.title ?? props.text,
@@ -135,7 +137,7 @@ const reddit = (props: RedditSharingProps) => {
 	return socialBase(params, 'reddit')
 }
 
-interface LinkedInSharingProps extends ShareProps {
+export interface LinkedInShareProps extends ShareProps {
 	/**
 	 * This attribute is not **officially** supported by LinkedIn, but it works.
 	 */
@@ -146,14 +148,14 @@ interface LinkedInSharingProps extends ShareProps {
  *
  * [Reference](https://stackoverflow.com/questions/33426752/linkedin-share-post-url)
  */
-const linkedin = (props: LinkedInSharingProps) => {
+const linkedin = (props: LinkedInShareProps) => {
 	const params = {
 		...props
 	}
 	return socialBase(params, 'linkedin')
 }
 
-interface TumblrSharingProps extends ShareProps {
+export interface TumblrShareProps extends ShareProps {
 	/**
 	 * Not supported by Tumblr. Equivalent to `canonicalUrl`.
 	 */
@@ -196,7 +198,7 @@ interface TumblrSharingProps extends ShareProps {
  *
  * [Reference](https://www.tumblr.com/docs/en/share_button)
  */
-const tumblr = (props: TumblrSharingProps) => {
+const tumblr = (props: TumblrShareProps) => {
 	const params = {
 		...props,
 		posttype: 'link',
@@ -208,7 +210,7 @@ const tumblr = (props: TumblrSharingProps) => {
 	return socialBase(params, 'tumblr')
 }
 
-interface GmailSharingProps extends ShareProps {
+export interface GmailShareProps extends ShareProps {
 	/**
 	 * Not supported by Gmail. See `body`.
 	 */
@@ -258,7 +260,7 @@ interface GmailSharingProps extends ShareProps {
  *
  * [Reference](https://stackoverflow.com/questions/20956206/is-the-mail-google-com-api-documented/56782038#56782038).
  */
-const gmail = (props: GmailSharingProps) => {
+const gmail = (props: GmailShareProps) => {
 	const params = {
 		...props,
 		view: 'cm',
@@ -270,7 +272,7 @@ const gmail = (props: GmailSharingProps) => {
 	return socialBase(params, 'gmail')
 }
 
-interface MailtoSharingProps extends ShareProps {
+export interface MailtoShareProps extends ShareProps {
 	/**
 	 * Not supported by Mailto. See `body`.
 	 */
@@ -308,7 +310,7 @@ interface MailtoSharingProps extends ShareProps {
  *
  * [Reference](https://www.ietf.org/rfc/rfc2368.txt).
  */
-const mailto = (props: MailtoSharingProps) => {
+const mailto = (props: MailtoShareProps) => {
 	const params = {
 		...props,
 		body: `${props.body ?? props.text} ${props.url}`,
@@ -318,7 +320,7 @@ const mailto = (props: MailtoSharingProps) => {
 	return `mailto:${props.emailAddress ?? ''}?${toQueryString(params)}`
 }
 
-interface PocketSharingProps extends ShareProps {
+export interface PocketShareProps extends ShareProps {
 	/**
 	 * URL to save.
 	 */
@@ -334,7 +336,7 @@ interface PocketSharingProps extends ShareProps {
  *
  * [Reference](https://getpocket.com/publisher/button_docs)
  */
-const pocket = (props: PocketSharingProps) => {
+const pocket = (props: PocketShareProps) => {
 	const params = {
 		...props,
 		text: undefined
